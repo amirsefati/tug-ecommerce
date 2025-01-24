@@ -22,15 +22,15 @@ export class Product {
   @Column({ unique: true })
   barcode: string;
 
-  @ManyToOne(() => Category)
-  @JoinColumn()
+  @ManyToOne(() => Category, { eager: true })
+  @JoinColumn({ name: 'category_id' })
   category: Category;
 
-  @ManyToOne(() => Subcategory, { nullable: true })
-  @JoinColumn()
-  subcategory: Subcategory;
+  @ManyToOne(() => Subcategory, { eager: true, nullable: true })
+  @JoinColumn({ name: 'subcategory_id' })
+  subcategory: Subcategory | null;
 
-  @ManyToOne(() => Company, (company) => company.product)
-  @JoinColumn()
+  @ManyToOne(() => Company, { eager: true })
+  @JoinColumn({ name: 'company_id' })
   company: Company;
 }
