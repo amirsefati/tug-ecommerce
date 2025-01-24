@@ -47,6 +47,7 @@ cd ecommerce-api && npm install
 # Create environment file
 cp .env.example .env
 
+## ⚙️ Configuration
 
 # Database
 DB_HOST=
@@ -54,6 +55,7 @@ DB_PORT=
 DB_USERNAME=
 DB_PASSWORD=
 DB_DATABASE=
+
 
 # Redis
 REDIS_HOST=
