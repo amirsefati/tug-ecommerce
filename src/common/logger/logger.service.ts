@@ -6,7 +6,7 @@ export class LoggerService {
     console.log(`[${new Date().toISOString()}] LOG: ${message}`);
   }
 
-  error(message: string) {
+  error(message: string, stack: any) {
     console.error(`[${new Date().toISOString()}] ERROR: ${message}`);
   }
 }

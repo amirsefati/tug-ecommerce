@@ -4,9 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CompaniesController } from './companies/companies.controller';
+import { CompaniesModule } from './companies/companies.module';
 import { ProductsController } from './products/products.controller';
 import { ProductsModule } from './products/products.module';
-import { CompaniesModule } from './companies/companies.module';
 
 @Module({
   imports: [
