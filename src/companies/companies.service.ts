@@ -20,10 +20,12 @@ export class CompaniesService {
   }
 
   async findAll(): Promise<Company[]> {
+    this.logger.log('Fetching all companies');
     return this.companyRepository.find();
   }
 
   async findOne(id: number): Promise<Company> {
+    this.logger.log(`Fetching company with ID: ${id}`);
     return this.companyRepository.findOneBy({ id });
   }
 
@@ -32,10 +34,12 @@ export class CompaniesService {
     updateCompanyDto: UpdateCompanyDto,
   ): Promise<Company> {
     await this.companyRepository.update(id, updateCompanyDto);
+    this.logger.log(`Update company with ID: ${id}`);
     return this.companyRepository.findOneBy({ id });
   }
 
   async remove(id: number): Promise<void> {
+    this.logger.log(`Remove company with ID: ${id}`);
     await this.companyRepository.delete(id);
   }
 }

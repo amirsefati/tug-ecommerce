@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LoggerModule } from 'src/common/logger/logger.module';
 import { CompaniesModule } from '../companies/companies.module';
 import { Category } from './entities/category.entity';
 import { Product } from './entities/product.entity';
@@ -13,6 +14,7 @@ import { ProductsService } from './products.service';
     TypeOrmModule.forFeature([Product, Category, Subcategory]),
     CompaniesModule,
     ConfigModule,
+    LoggerModule,
   ],
   controllers: [ProductsController],
   providers: [ProductsService],
