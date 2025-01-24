@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { LoggerService } from '../common/logger/logger.service';
 import { CreateCompanyDto } from './dto/create-company.dto';
 import { UpdateCompanyDto } from './dto/update-company.dto';
 import { Company } from './entities/company.entity';
@@ -10,9 +11,11 @@ export class CompaniesService {
   constructor(
     @InjectRepository(Company)
     private companyRepository: Repository<Company>,
+    private logger: LoggerService,
   ) {}
 
   async create(createCompanyDto: CreateCompanyDto): Promise<Company> {
+    this.logger.log('Creating new company');
     return this.companyRepository.save(createCompanyDto);
   }
 
